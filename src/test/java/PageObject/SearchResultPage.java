@@ -12,8 +12,6 @@ public class SearchResultPage extends BasePage{
     }
 
     //Locators
-   /* By SortBy_dropDownList= new ByChained(By.xpath(""),
-            By.xpath("select[@id='s-result-sort-select']"));*/
     By SortBy_dropDownList=
             By.cssSelector("#s-result-sort-select");
     By First_Search_iPadResult_lnk=
