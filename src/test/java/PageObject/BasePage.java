@@ -36,7 +36,7 @@ public class BasePage {
     }
     public void CheckVisibilityOfElementByExplicitWait(By Element){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(Element));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Element));
     }
     public double ConvertStringDataToNumeric(By Element){
         String CleanString=getData(Element).replaceAll("[^0-9.]", "");
