@@ -20,8 +20,6 @@ public class SearchResultPage extends BasePage{
     By First_Search_iPadResult_lnk=
             By.xpath("(//a[@class='a-link-normal s-line-clamp-4 s-link-style a-text-normal'])");
 
-
-
     //Actions
     public SearchResultPage SortingItemsBy(String Value) {
         Select select = new Select(getFindElement(SortBy_dropDownList));
