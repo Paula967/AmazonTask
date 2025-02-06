@@ -30,7 +30,7 @@ public class SearchResultPage extends BasePage{
     }
     public DetailsItemPage ClickOnAnySearchResult(int index){
         List<WebElement> links=getFindElements(First_Search_iPadResult_lnk);
-        links.get(index).click();
+        links.get(index - 1).click();
         return new DetailsItemPage(driver);
     }
 
