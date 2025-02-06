@@ -22,6 +22,6 @@ public class ShoppingCartPage extends BasePage{
         return data.contains("…") ? data.replace("…", "") : data;
     }
     public Double getProductPrice() {
-        return ConvertToNumeric(ProductPriceInCartPage);
+        return ConvertStringDataToNumeric(ProductPriceInCartPage);
     }
 }

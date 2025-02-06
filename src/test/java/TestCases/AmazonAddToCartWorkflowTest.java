@@ -12,7 +12,7 @@ import java.util.Objects;
 public class AmazonAddToCartWorkflowTest extends BaseClass {
     @Test
     public void AddToCartTest(){
-        DetailsItemPage detailsItemPage= homePage.SendData().ClickOnSearchButton().selectByVisibleText().ClickOnFirstSearchResult();
+        DetailsItemPage detailsItemPage= homePage.SearchFor("iPad").ClickOnSearchButton().SortingItemsBy("Price: High to Low").ClickOnFirstSearchResult();
         String ProductName=detailsItemPage.getProductName();
         Double ProductPrice=detailsItemPage.getProductPrice();
         ShoppingCartPage shoppingCartPage=detailsItemPage.ClickOnAddToCart().ClickOnMyCartButton();

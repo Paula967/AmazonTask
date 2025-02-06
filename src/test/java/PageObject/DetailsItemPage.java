@@ -17,11 +17,11 @@ public class DetailsItemPage extends BasePage{
 
     //Actions
     public String getProductName(){
-        ExplicitWaitFunction(iPad_Name);
+        CheckVisibilityOfElementByExplicitWait(iPad_Name);
         return getData(iPad_Name);
     }
     public Double getProductPrice(){
-        return ConvertToNumeric(iPad_Salary);
+        return ConvertStringDataToNumeric(iPad_Salary);
     }
     public ShoppingCartPage ClickOnAddToCart(){
         Click(addToCart_btn);

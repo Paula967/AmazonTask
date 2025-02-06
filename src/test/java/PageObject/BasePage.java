@@ -33,11 +33,11 @@ public class BasePage {
     public String getData(By Element){
         return getFindElement(Element).getText();
     }
-    public void ExplicitWaitFunction(By Element){
+    public void CheckVisibilityOfElementByExplicitWait(By Element){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(Element));
     }
-    public double ConvertToNumeric(By Element){
+    public double ConvertStringDataToNumeric(By Element){
         String CleanString=getData(Element).replaceAll("[^0-9.]", "");
         return Double.parseDouble(CleanString);
     }

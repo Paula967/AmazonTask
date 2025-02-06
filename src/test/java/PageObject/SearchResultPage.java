@@ -20,9 +20,9 @@ public class SearchResultPage extends BasePage{
 
 
     //Actions
-    public SearchResultPage selectByVisibleText() {
+    public SearchResultPage SortingItemsBy(String Value) {
         Select select = new Select(getFindElement(SortBy_dropDownList));
-        select.selectByVisibleText("Price: High to Low");
+        select.selectByVisibleText(Value);
         return this;
     }
     public DetailsItemPage ClickOnFirstSearchResult(){

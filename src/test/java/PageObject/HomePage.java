@@ -13,8 +13,8 @@ public class HomePage extends BasePage {
     By Search_btn=By.id("nav-search-submit-button");
 
     //Actions
-    public HomePage SendData(){
-        SendDataToTextBox(Search_txtBox,"iPad");
+    public HomePage SearchFor(String Item){
+        SendDataToTextBox(Search_txtBox,Item);
         return this;
     }
     public SearchResultPage ClickOnSearchButton(){
