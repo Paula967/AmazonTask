@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 
 public class BasePage {
@@ -41,6 +42,11 @@ public class BasePage {
         String CleanString=getData(Element).replaceAll("[^0-9.]", "");
         return Double.parseDouble(CleanString);
     }
+    public List<WebElement> getFindElements(By Elements)
+    {
+        return driver.findElements(Elements);
+    }
+
 
 
 }

@@ -2,7 +2,10 @@ package PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class SearchResultPage extends BasePage{
 
@@ -15,7 +18,7 @@ public class SearchResultPage extends BasePage{
     By SortBy_dropDownList=
             By.cssSelector("#s-result-sort-select");
     By First_Search_iPadResult_lnk=
-            By.xpath("(//a[@class='a-link-normal s-line-clamp-4 s-link-style a-text-normal'])[8]");
+            By.xpath("(//a[@class='a-link-normal s-line-clamp-4 s-link-style a-text-normal'])");
 
 
 
@@ -25,8 +28,9 @@ public class SearchResultPage extends BasePage{
         select.selectByVisibleText(Value);
         return this;
     }
-    public DetailsItemPage ClickOnFirstSearchResult(){
-        Click(First_Search_iPadResult_lnk);
+    public DetailsItemPage ClickOnAnySearchResult(int index){
+        List<WebElement> links=getFindElements(First_Search_iPadResult_lnk);
+        links.get(index).click();
         return new DetailsItemPage(driver);
     }
 
