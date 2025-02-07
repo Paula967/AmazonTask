@@ -17,7 +17,5 @@ jobs:
       - uses: browser-actions/setup-chrome@latest
       - run: mvn clean test 
 
-      - name: Generate Allure Report
-        run: allure serve allure-results
-
+    
       
