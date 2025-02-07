@@ -14,11 +14,11 @@ public class HomePage extends BasePage {
 
     //Actions
     public HomePage SearchFor(String Item){
-        SendDataToTextBox(Search_txtBox,Item);
+        sendKeysToElement(Search_txtBox,Item);
         return this;
     }
     public SearchResultPage ClickOnSearchButton(){
-        Click(Search_btn);
+        clickElement(Search_btn);
         return new SearchResultPage(driver);
     }
 

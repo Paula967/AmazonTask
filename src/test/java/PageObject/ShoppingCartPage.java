@@ -18,7 +18,7 @@ public class ShoppingCartPage extends BasePage{
         return this;
     }
     public String getProductInfo(){
-        String data = getData(ProductInfoInCartPage);
+        String data = getTextFromElement(ProductInfoInCartPage);
         return data.contains("…") ? data.replace("…", "") : data;
     }
     public Double getProductPrice() {

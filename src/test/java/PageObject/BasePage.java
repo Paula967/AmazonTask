@@ -22,24 +22,24 @@ public class BasePage {
     }
 
     //Actions
-    public WebElement getFindElement(By Element){
-        return driver.findElement(Element);
+    public WebElement getFindElement(By locator){
+        return driver.findElement(locator);
     }
-    public void Click(By Element){
-        getFindElement(Element).click();
+    public void clickElement(By locator){
+        getFindElement(locator).click();
     }
-    public void SendDataToTextBox(By Element, String Word){
-        getFindElement(Element).sendKeys(Word);
+    public void sendKeysToElement(By locator, String text){
+        getFindElement(locator).sendKeys(text);
     }
-    public String getData(By Element){
-        return getFindElement(Element).getText();
+    public String getTextFromElement(By locator){
+        return getFindElement(locator).getText();
     }
     public void CheckVisibilityOfElementByExplicitWait(By Element){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(Element));
     }
     public double ConvertStringDataToNumeric(By Element){
-        String CleanString=getData(Element).replaceAll("[^0-9.]", "");
+        String CleanString= getTextFromElement(Element).replaceAll("[^0-9.]", "");
         return Double.parseDouble(CleanString);
     }
     public List<WebElement> getFindElements(By Elements)

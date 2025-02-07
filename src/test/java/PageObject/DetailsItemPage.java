@@ -18,7 +18,7 @@ public class DetailsItemPage extends BasePage{
     //Actions
     public String getProductName(){
         CheckVisibilityOfElementByExplicitWait(iPad_Name);
-        return getData(iPad_Name);
+        return getTextFromElement(iPad_Name);
     }
     public Double getProductPrice(){
         return ConvertStringDataToNumeric(iPad_Salary);
