@@ -1,6 +1,7 @@
 package PageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,42 +12,57 @@ import java.time.Duration;
 import java.util.List;
 
 
+
 public class BasePage {
 
     //Attributes
     public WebDriver driver;
+    protected  WebDriverWait wait;
 
     //Constructor
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     //Actions
-    public WebElement getFindElement(By locator){
+    public WebElement findElement(By locator){
         return driver.findElement(locator);
     }
+
     public void clickElement(By locator){
-        getFindElement(locator).click();
+        findElement(locator).click();
     }
+
     public void sendKeysToElement(By locator, String text){
-        getFindElement(locator).sendKeys(text);
+        findElement(locator).sendKeys(text);
     }
+
     public String getTextFromElement(By locator){
-        return getFindElement(locator).getText();
+        return findElement(locator).getText();
     }
-    public void CheckVisibilityOfElementByExplicitWait(By Element){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(Element));
+
+    public void waitForElementVisibility(By locator){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public double ConvertStringDataToNumeric(By Element){
-        String CleanString= getTextFromElement(Element).replaceAll("[^0-9.]", "");
-        return Double.parseDouble(CleanString);
+
+    public double convertTextToDouble(By locator){
+        return Double.parseDouble(getTextFromElement(locator).replaceAll("[^0-9.]", ""));
     }
-    public List<WebElement> getFindElements(By Elements)
+
+    public List<WebElement> findElements(By locator)
     {
-        return driver.findElements(Elements);
+        return driver.findElements(locator);
     }
 
+    public void clickElementByJavaScript(By locator){
+        WebElement Element=driver.findElement(locator);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", Element);
+    }
 
+    public void waitForElementsVisibility(By locator){
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
 
 }

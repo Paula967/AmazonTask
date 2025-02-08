@@ -9,17 +9,17 @@ public class HomePage extends BasePage {
     }
 
     //Locators
-    By Search_txtBox =By.id("twotabsearchtextbox");
-    By Search_btn=By.id("nav-search-submit-button");
+     private final By searchTextBox =By.id("twotabsearchtextbox");
+     private final By searchButton =By.id("nav-search-submit-button");
 
     //Actions
-    public HomePage SearchFor(String Item){
-        sendKeysToElement(Search_txtBox,Item);
+    public HomePage searchFor(String Item){
+        sendKeysToElement(searchTextBox,Item);
         return this;
     }
-    public SearchResultPage ClickOnSearchButton(){
-        clickElement(Search_btn);
+
+    public SearchResultPage clickSearchButton(){
+        clickElement(searchButton);
         return new SearchResultPage(driver);
     }
-
 }

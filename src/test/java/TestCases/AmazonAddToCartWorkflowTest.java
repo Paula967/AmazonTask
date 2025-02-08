@@ -11,16 +11,21 @@ import java.util.Objects;
 
 public class AmazonAddToCartWorkflowTest extends BaseClass {
     @Test
-    public void AddToCartTest(){
+    public void AddToCartTest() throws InterruptedException {
+
         DetailsItemPage detailsItemPage= homePage
-                                                 .SearchFor("iPad")
-                                                 .ClickOnSearchButton()
-                                                 .SortingItemsBy("Price: High to Low")
-                                                 .ClickOnAnySearchResult(1);
+               .searchFor("iPad")
+               .clickSearchButton()
+               .sortItemsBy("Price: High to Low")
+               .clickSearchResult(2);
+
         String ProductName=detailsItemPage.getProductName();
         Double ProductPrice=detailsItemPage.getProductPrice();
-        ShoppingCartPage shoppingCartPage=detailsItemPage.ClickOnAddToCart().ClickOnMyCartButton();
-        Assert.assertTrue(ProductName.contains(shoppingCartPage.getProductInfo())
-                && Objects.equals(ProductPrice, shoppingCartPage.getProductPrice()),"No Matched Data");
+
+        ShoppingCartPage shoppingCartPage=detailsItemPage
+                .addProductToCart();
+
+        Assert.assertTrue(ProductName.contains(shoppingCartPage.getCartProductName())
+                && Objects.equals(ProductPrice, shoppingCartPage.getCartProductPrice()),"No Matched Data");
     }
 }

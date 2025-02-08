@@ -7,21 +7,20 @@ public class ShoppingCartPage extends BasePage{
     public ShoppingCartPage(WebDriver driver) {
         super(driver);
     }
+
     //Locators
-    By goToBasket_btn=By.xpath("//a[@href='/-/en/cart?ref_=sw_gtc']");
-    By ProductInfoInCartPage=By.xpath("//span[@class='a-truncate-cut']");
-    By ProductPriceInCartPage=By.xpath("//span[@class='a-price a-text-price sc-product-price sc-white-space-nowrap a-size-medium']" +
+    private final By productInfoInCart =By.xpath("//span[@class='a-truncate-cut']");
+    private final By productPriceInCart =By.xpath("//span[@class='a-price a-text-price sc-product-price sc-white-space-nowrap a-size-medium']" +
             "/span[2]");
+
     //Actions
-    public ShoppingCartPage ClickOnMyCartButton(){
-        Click(goToBasket_btn);
-        return this;
-    }
-    public String getProductInfo(){
-        String data = getTextFromElement(ProductInfoInCartPage);
+    public String getCartProductName(){
+        String data = getTextFromElement(productInfoInCart);
         return data.contains("…") ? data.replace("…", "") : data;
     }
-    public Double getProductPrice() {
-        return ConvertStringDataToNumeric(ProductPriceInCartPage);
+
+    public Double getCartProductPrice() {
+        return convertTextToDouble(productPriceInCart);
     }
+
 }
