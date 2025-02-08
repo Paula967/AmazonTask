@@ -20,8 +20,8 @@ public class BaseClass {
         driver.get("https://www.amazon.eg/-/en/ref=nav_logo");
         homePage=new HomePage(driver);
     }
-   /* @AfterClass
+    @AfterClass
     public void tearDown() {
         driver.close();
-    }*/
+    }
 }
