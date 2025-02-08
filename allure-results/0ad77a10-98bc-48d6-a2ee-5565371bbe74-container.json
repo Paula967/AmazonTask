@@ -1,0 +1,1 @@
+{"uuid":"0ad77a10-98bc-48d6-a2ee-5565371bbe74","name":"TestCases.AmazonAddToCartWorkflowTest","children":["23e23453-27bb-4000-9bdb-f5517d77ea83"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1738971918890,"stop":1738971926184}],"afters":[],"start":1738971918817,"stop":1738971950234}

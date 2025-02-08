@@ -13,19 +13,22 @@ public class AmazonAddToCartWorkflowTest extends BaseClass {
     @Test
     public void AddToCartTest() throws InterruptedException {
 
-        DetailsItemPage detailsItemPage= homePage
-               .searchFor("iPad")
-               .clickSearchButton()
-               .sortItemsBy("Price: High to Low")
-               .clickSearchResult(2);
+        DetailsItemPage detailsItemPage = homePage
+                .searchFor("iPad")
+                .clickSearchButton()
+                .sortItemsBy("Price: High to Low")
+                .clickSearchResult(2);
 
-        String ProductName=detailsItemPage.getProductName();
-        Double ProductPrice=detailsItemPage.getProductPrice();
+        String expectedProductName = detailsItemPage.getProductName();
+        Double expectedProductPrice = detailsItemPage.getProductPrice();
 
-        ShoppingCartPage shoppingCartPage=detailsItemPage
-                .addProductToCart();
+        ShoppingCartPage cartPage = detailsItemPage.addProductToCart();
 
-        Assert.assertTrue(ProductName.contains(shoppingCartPage.getCartProductName())
-                && Objects.equals(ProductPrice, shoppingCartPage.getCartProductPrice()),"No Matched Data");
+
+        boolean isProductNameMatching = expectedProductName.contains(cartPage.getCartProductName());
+        boolean isProductPriceMatching = Objects.equals(expectedProductPrice, cartPage.getCartProductPrice());
+
+        Assert.assertTrue(isProductNameMatching && isProductPriceMatching, "No Matched Data");
+
     }
 }
