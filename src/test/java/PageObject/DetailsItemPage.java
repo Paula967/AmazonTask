@@ -60,7 +60,7 @@ public class DetailsItemPage extends BasePage{
     private void processBuyingOptions() throws InterruptedException {
         clickElement(seeAllBuyingOptionsButton);
         clickElementByJavaScript(addToCartButton2);
-        Thread.sleep(1500);
+        Thread.sleep(1200);
         clickElementByJavaScript(viewCartButton);
     }
 
@@ -68,7 +68,7 @@ public class DetailsItemPage extends BasePage{
         ShoppingCartPage shoppingCartPage=new ShoppingCartPage(driver);
         clickElementByJavaScript(addToCartButton);
         clickElement(noThanksButton);
-        shoppingCartPage.clickOnCartButton();
+        shoppingCartPage.clickGoToBasket();
     }
 
     private boolean isBuyingOptionsAvailable() {

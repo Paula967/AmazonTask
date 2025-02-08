@@ -17,7 +17,7 @@ public class AmazonAddToCartWorkflowTest extends BaseClass {
                 .searchFor("iPad")
                 .clickSearchButton()
                 .sortItemsBy("Price: High to Low")
-                .clickSearchResult(2);
+                .clickSearchResult(1);
 
         String expectedProductName = detailsItemPage.getProductName();
         Double expectedProductPrice = detailsItemPage.getProductPrice();
